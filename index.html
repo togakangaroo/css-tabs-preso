@@ -194,19 +194,19 @@
 								<h1>flexbox <code>order</code> with wrapping</h1>
 								<figure class="sample-code smallest">
 										<style>
-										#flex-wrapping-order-slide figure {
-												display: flex;
-												flex-wrap: wrap;
-										}
-										#flex-wrapping-order-slide figure article {
-												order: 2;
-												width: 100%;
-												border: 1px solid black;
-										}
-										#flex-wrapping-order-slide figure a {
-												order: 1;
-												margin-right: .5em;
-										}
+												#flex-wrapping-order-slide figure {
+														display: flex;
+														flex-wrap: wrap;
+												}
+												#flex-wrapping-order-slide figure article {
+														order: 2;
+														width: 100%;
+														border: 1px solid black;
+												}
+												#flex-wrapping-order-slide figure a {
+														order: 1;
+														margin-right: .5em;
+												}
 										</style>
 										<article>One Text Block</article>
 										<a>One Link</a>
@@ -220,9 +220,35 @@
 				</section>
 
 				<section id="put-it-to-use">
-						<h1>Ok, stop messing around</h1>
+						<h1 class="small">Ok, stop messing around</h1>
 
-						<a href="http://jsbin.com/dozukis/1/edit?html,css,output" target="_blank">Let's try this stuff out</a>
+						<figure>
+								<script type="text/html" class="sample-code">
+										<article id="about">About Content</article>
+										<a href="#about" class="tab">About</a>
+
+										<article id="contact">Contact Content</article>
+										<a href="#contact" class="tab">Contact</a>
+
+										<article id="home">Home Content</article>
+										<a href="#home" class="tab">Home</a>
+								</script>
+								<pre class="smallest"><code class="html" data-trim></code></pre>
+								<ul class="smaller">
+										<li>Style tabs properly</li>
+										<li>Position all tabs first, contents last</li>
+										<li>Hide all conents except for <code>:target</code></li>
+										<li>Highlight the tab that follows <code>:target</code></li>
+										<li>...a few more things probably...</li>
+										<li style="display: flex; align-items: flex-start;">
+												...profit
+												<img src="img/sunglasses-dog.jpg" style="margin-left: 1em;" width="100">
+										</li>
+								</ul>
+						</figure>
+						<p>
+								<a href="http://jsbin.com/dozukis/1/edit?html,css,output" target="_blank">Now let's try this stuff out</a>
+						</p>
 				</section>
 
 				<section data-markdown id="questions">
