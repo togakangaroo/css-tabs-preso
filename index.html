@@ -151,7 +151,7 @@
 				</section>
 
 				<section id="load-up-inventory-slide" data-markdown>
-						## CSS Tabs - It Is Possible!
+						## Javascript-free tabs are Possible!
 
 						![Game Inventory](img/dc-hero-inventory.jpg)
 
@@ -161,9 +161,9 @@
 				<section id="taking-inventory">
 						<section id="target-example-slide">
 								<h1 class="small"><code>:target</code> url match selector</h1>
+								<pre><code class="html small" style="line-height: 1em" data-trim></code></pre>
 								<p class="sample-page-url smaller"></p>
 								<iframe src="target-example.html" class="sample-page"></iframe>
-								<pre><code class="html" data-trim></code></pre>
 								<script>
 								{
 										const ctx = document.querySelector('#target-example-slide')
@@ -265,23 +265,25 @@
 								<h1>flexbox <code>order</code></h1>
 								<figure class="sample-code smaller">
 										<style>
-										#flex-order-slide figure {
-												display: flex;
-												flex-direction: column;
-										}
-										#flex-order-slide figure article {
-												order: 2;
-										}
-										#flex-order-slide figure a {
-												order: 1;
-										}
+												#flex-order-slide aside {
+														display: flex;
+														flex-direction: column;
+												}
+												#flex-order-slide aside a {
+														order: 1;
+												}
+												#flex-order-slide aside article {
+														order: 2;
+												}
 										</style>
-										<article>One Text Block</article>
-										<a>One Link</a>
-										<article>Two Text Block</article>
-										<a>Two Link</a>
-										<article>Three Text Block</article>
-										<a>Three Link</a>
+										<aside>
+												<article>One Text Block</article>
+												<a>One Link</a>
+												<article>Two Text Block</article>
+												<a>Two Link</a>
+												<article>Three Text Block</article>
+												<a>Three Link</a>
+										</aside>
 								</figure>
 								<pre class="smallest"><code class="html" data-trim></code></pre>
 						</section>
@@ -290,26 +292,28 @@
 								<h1>flexbox <code>order</code> with wrapping</h1>
 								<figure class="sample-code smallest">
 										<style>
-												#flex-wrapping-order-slide figure {
+												#flex-wrapping-order-slide aside {
 														display: flex;
 														flex-wrap: wrap;
 												}
-												#flex-wrapping-order-slide figure article {
+												#flex-wrapping-order-slide aside article {
 														order: 2;
-														width: 100%;
+														min-width: 100%;
 														border: 1px solid black;
 												}
-												#flex-wrapping-order-slide figure a {
+												#flex-wrapping-order-slide aside a {
 														order: 1;
 														margin-right: .5em;
 												}
 										</style>
-										<article>One Text Block</article>
-										<a>One Link</a>
-										<article>Two Text Block</article>
-										<a>Two Link</a>
-										<article>Three Text Block</article>
-										<a>Three Link</a>
+										<aside>
+												<article>One Text Block</article>
+												<a>One Link</a>
+												<article>Two Text Block</article>
+												<a>Two Link</a>
+												<article>Three Text Block</article>
+												<a>Three Link</a>
+										</aside>
 								</figure>
 								<pre class="smallest"><code class="html" data-trim></code></pre>
 						</section>
@@ -332,8 +336,8 @@
 								<pre class="smallest"><code class="html" data-trim></code></pre>
 								<ul class="smaller">
 										<li>Style tabs properly</li>
-										<li>Position all tabs first, contents last</li>
-										<li>Hide all conents except for <code>:target</code></li>
+										<li>Position all tabs first, articles last</li>
+										<li>Hide all contents except for currently selected <code>:target</code></li>
 										<li>Highlight the tab that follows <code>:target</code></li>
 										<li>...a few more things probably...</li>
 										<li style="display: flex; align-items: flex-start;">
@@ -356,14 +360,19 @@
 								transform: translate(0, 100px);
 							}
 						 #look-ma-no-hacks .crossbar {
-								width: 50vw;
-								height: 5vw;
+								width: 50vh;
+								height: 5vh;
 								background-color: rgba(255, 0, 0, .7);
 								display: block;
 								margin: auto;
 								position: absolute;
+								border-radius: 20%;
+								display: none;
 							}
-						 #look-ma-no-hacks .crossbar.right {
+						#look-ma-no-hacks .crossbar {
+								display: block;
+						}
+						#look-ma-no-hacks .crossbar.right {
 								transform: rotate(45deg);
 							}
 						 #look-ma-no-hacks .crossbar.left {
