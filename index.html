@@ -27,7 +27,8 @@
 		#tabbed-uis h1 {
 				font-size: 90%;
 		}
-		#javascript-headache img {
+		#taking-inventory h1 {
+				font-size: 1.4em;
 		}
 </style>
 <div class="reveal">
@@ -40,169 +41,199 @@
 						George Mauer
 						@togakangaroo - [http://georgemauer.net](http://georgemauer.net)
 				</section>
+
 				<section id="tabbed-uis" data-markdown>
 						# Tabbed UIs are *the* metaphor
 						![jQuery UI](img/jquery-ui-tabs.png)
 						![Bootstrap](img/bootstrap-tabs.png)
 						![Material Design](img/material-design-tabs.png)
 				</section>
+
 				<section id="js-headache" class="small">
 						<h1>Javascript is a headache!</h1>
 						<img title="What a Headache" src="img/what-a-headache.png" height="400">
 				</section>
+
 				<section id="load-up-inventory-slide" data-markdown>
+						## CSS Tabs - It Is Possible!
+
 						![Game Inventory](img/dc-hero-inventory.jpg)
 
-						## Lets take Inventory
+						### Lets take Inventory
 				</section>
-				<section id="target-example-slide">
-						<h1 class="small"><code>:target</code> url match selector</h1>
-						<p class="sample-page-url smaller"></p>
-						<iframe src="target-example.html" class="sample-page"></iframe>
-						<pre><code class="html" data-trim></code></pre>
-						<script>
-						{
-								const ctx = document.querySelector('#target-example-slide')
-								const urlView = ctx.querySelector('.sample-page-url')
-								const doc = ctx.querySelector('.sample-page').contentWindow
-								doc.addEventListener('hashchange', () =>
-										urlView.textContent = doc.location.href
-								)
-								const refreshCode = () =>
-										ctx.querySelector('pre>code').textContent = doc.document.body.innerHTML
-								refreshCode()
-								doc.addEventListener('load', refreshCode)
-						}
-						</script>
+
+				<section id="taking-inventory">
+						<section id="target-example-slide">
+								<h1 class="small"><code>:target</code> url match selector</h1>
+								<p class="sample-page-url smaller"></p>
+								<iframe src="target-example.html" class="sample-page"></iframe>
+								<pre><code class="html" data-trim></code></pre>
+								<script>
+								{
+										const ctx = document.querySelector('#target-example-slide')
+										const urlView = ctx.querySelector('.sample-page-url')
+										const doc = ctx.querySelector('.sample-page').contentWindow
+										doc.addEventListener('hashchange', () =>
+												urlView.textContent = doc.location.href
+										)
+										const refreshCode = () =>
+												ctx.querySelector('pre>code').textContent = doc.document.body.innerHTML
+										refreshCode()
+										doc.addEventListener('load', refreshCode)
+								}
+								</script>
+						</section>
+
+						<section id="next-selector-slide">
+								<h1><code>+</code> next sibling selector</h1>
+								<figure class="sample-code">
+										<style>
+										#next-selector-slide input:checked + label {
+												font-weight: bold;
+												background-color: #6287FE;
+										}
+										</style>
+										<input name="next-selector-demo" type="radio" id="next-selector-demo-1">
+										<label for="next-selector-demo-1">One</label>
+										<input name="next-selector-demo" type="radio" id="next-selector-demo-2">
+										<label for="next-selector-demo-2">Two</label>
+										<input name="next-selector-demo" type="radio" id="next-selector-demo-3">
+										<label for="next-selector-demo-3">Three</label>
+								</figure>
+								<pre><code class="html" data-trim></code></pre>
+						</section>
+
+						<section id="next-selector-slide-hidden">
+								<h1><code>+</code> next sibling selector</h1>
+								<figure class="sample-code">
+										<style>
+										#next-selector-slide-hidden input:checked + label {
+												font-weight: bold;
+												background-color: #6287FE;
+										}
+										#next-selector-slide-hidden input {
+												display: none;
+										}
+										</style>
+										<input name="next-selector-demo-hidden" type="radio" id="next-selector-demo-hidden-1">
+										<label for="next-selector-demo-hidden-1">One</label>
+										<input name="next-selector-demo-hidden" type="radio" id="next-selector-demo-hidden-2">
+										<label for="next-selector-demo-hidden-2">Two</label>
+										<input name="next-selector-demo-hidden" type="radio" id="next-selector-demo-hidden-3">
+										<label for="next-selector-demo-hidden-3">Three</label>
+								</figure>
+								<pre><code class="html" data-trim></code></pre>
+						</section>
+
+						<section id="following-sibling-selector-slide">
+								<h1><code>~</code> following sibling selector</h1>
+								<figure class="sample-code">
+										<style>
+										#following-sibling-selector-slide input:checked ~ label {
+												font-weight: bold;
+												background-color: #6287FE;
+										}
+										</style>
+										<input type="checkbox" id="following-sibling-selector-demo-1">
+										<label for="following-sibling-selector-demo-1">One</label>
+										<input type="checkbox" id="following-sibling-selector-demo-2">
+										<label for="following-sibling-selector-demo-2">Two</label>
+										<input type="checkbox" id="following-sibling-selector-demo-3">
+										<label for="following-sibling-selector-demo-3">Three</label>
+								</figure>
+								<pre><code class="html" data-trim></code></pre>
+						</section>
+
+						<section id="last-of-type-selector-slide">
+								<h1><code>:last-of-type</code></h1>
+								<figure class="sample-code smaller">
+										<style>
+										#last-of-type-selector-slide figure article:last-of-type {
+												background-color: #6287FE;
+										}
+										#last-of-type-selector-slide figure a:last-of-type {
+												background-color: #12A7FE;
+										}
+										</style>
+										<article>One Text Block</article>
+										<a>One Link</a>
+										<article>Two Text Block</article>
+										<a>Two Link</a>
+										<article>Three Text Block</article>
+										<a>Three Link</a>
+								</figure>
+								<pre><code class="html" data-trim></code></pre>
+						</section>
+
+						<section id="flex-order-slide">
+								<h1>flexbox <code>order</code></h1>
+								<figure class="sample-code smaller">
+										<style>
+										#flex-order-slide figure {
+												display: flex;
+												flex-direction: column;
+										}
+										#flex-order-slide figure article {
+												order: 2;
+										}
+										#flex-order-slide figure a {
+												order: 1;
+										}
+										</style>
+										<article>One Text Block</article>
+										<a>One Link</a>
+										<article>Two Text Block</article>
+										<a>Two Link</a>
+										<article>Three Text Block</article>
+										<a>Three Link</a>
+								</figure>
+								<pre class="smallest"><code class="html" data-trim></code></pre>
+						</section>
+
+						<section id="flex-wrapping-order-slide">
+								<h1>flexbox <code>order</code> with wrapping</h1>
+								<figure class="sample-code smallest">
+										<style>
+										#flex-wrapping-order-slide figure {
+												display: flex;
+												flex-wrap: wrap;
+										}
+										#flex-wrapping-order-slide figure article {
+												order: 2;
+												width: 100%;
+												border: 1px solid black;
+										}
+										#flex-wrapping-order-slide figure a {
+												order: 1;
+												margin-right: .5em;
+										}
+										</style>
+										<article>One Text Block</article>
+										<a>One Link</a>
+										<article>Two Text Block</article>
+										<a>Two Link</a>
+										<article>Three Text Block</article>
+										<a>Three Link</a>
+								</figure>
+								<pre class="smallest"><code class="html" data-trim></code></pre>
+						</section>
 				</section>
-				<section id="next-selector-slide">
-						<h1><code>+</code> next sibling selector</h1>
-						<figure class="sample-code">
-								<style>
-								 #next-selector-slide input:checked + label {
-										font-weight: bold;
-										background-color: #6287FE;
-									}
-								</style>
-								<input name="next-selector-demo" type="radio" id="next-selector-demo-1">
-								<label for="next-selector-demo-1">One</label>
-								<input name="next-selector-demo" type="radio" id="next-selector-demo-2">
-								<label for="next-selector-demo-2">Two</label>
-								<input name="next-selector-demo" type="radio" id="next-selector-demo-3">
-								<label for="next-selector-demo-3">Three</label>
-						</figure>
-						<pre><code class="html" data-trim></code></pre>
+
+				<section id="put-it-to-use">
+						<h1>Ok, stop messing around</h1>
+
+						<a href="http://jsbin.com/dozukis/1/edit?html,css,output" target="_blank">Let's try this stuff out</a>
 				</section>
-				<section id="next-selector-slide-hidden">
-						<h1><code>+</code> next sibling selector</h1>
-						<figure class="sample-code">
-								<style>
-								 #next-selector-slide-hidden input:checked + label {
-										font-weight: bold;
-										background-color: #6287FE;
-									}
-								 #next-selector-slide-hidden input {
-										display: none;
-									}
-								</style>
-								<input name="next-selector-demo-hidden" type="radio" id="next-selector-demo-hidden-1">
-								<label for="next-selector-demo-hidden-1">One</label>
-								<input name="next-selector-demo-hidden" type="radio" id="next-selector-demo-hidden-2">
-								<label for="next-selector-demo-hidden-2">Two</label>
-								<input name="next-selector-demo-hidden" type="radio" id="next-selector-demo-hidden-3">
-								<label for="next-selector-demo-hidden-3">Three</label>
-						</figure>
-						<pre><code class="html" data-trim></code></pre>
+
+				<section data-markdown id="questions">
+						# Questions?
+						----
+						George Mauer - gmauer@gmail.com
+						@togakangaroo - [http://georgemauer.net](http://georgemauer.net)
+						----
+						[Read more about this in detail](http://georgemauer.net/2016/07/15/css-only-tabs.html)
 				</section>
-				<section id="following-sibling-selector-slide">
-						<h1><code>~</code> following sibling selector</h1>
-						<figure class="sample-code">
-								<style>
-								 #following-sibling-selector-slide input:checked ~ label {
-										font-weight: bold;
-										background-color: #6287FE;
-									}
-								</style>
-								<input type="checkbox" id="following-sibling-selector-demo-1">
-								<label for="following-sibling-selector-demo-1">One</label>
-								<input type="checkbox" id="following-sibling-selector-demo-2">
-								<label for="following-sibling-selector-demo-2">Two</label>
-								<input type="checkbox" id="following-sibling-selector-demo-3">
-								<label for="following-sibling-selector-demo-3">Three</label>
-						</figure>
-						<pre><code class="html" data-trim></code></pre>
-				</section>
-				<section id="last-of-type-selector-slide">
-						<h1><code>:last-of-type</code></h1>
-						<figure class="sample-code smaller">
-								<style>
-								 #last-of-type-selector-slide figure article:last-of-type {
-										background-color: #6287FE;
-									}
-								 #last-of-type-selector-slide figure a:last-of-type {
-										background-color: #12A7FE;
-									}
-								</style>
-								<article>One Text Block</article>
-								<a>One Link</a>
-								<article>Two Text Block</article>
-								<a>Two Link</a>
-								<article>Three Text Block</article>
-								<a>Three Link</a>
-						</figure>
-						<pre><code class="html" data-trim></code></pre>
-				</section>
-				<section id="flex-order-slide">
-						<h1>flexbox <code>order</code></h1>
-						<figure class="sample-code smaller">
-								<style>
-								 #flex-order-slide figure {
-										display: flex;
-										flex-direction: column;
-									}
-								 #flex-order-slide figure article {
-										order: 2;
-									}
-								 #flex-order-slide figure a {
-										order: 1;
-									}
-								</style>
-								<article>One Text Block</article>
-								<a>One Link</a>
-								<article>Two Text Block</article>
-								<a>Two Link</a>
-								<article>Three Text Block</article>
-								<a>Three Link</a>
-						</figure>
-						<pre class="smallest"><code class="html" data-trim></code></pre>
-				</section>
-				<section id="flex-wrapping-order-slide">
-						<h1>flexbox <code>order</code> with wrapping</h1>
-						<figure class="sample-code smallest">
-								<style>
-								 #flex-wrapping-order-slide figure {
-										display: flex;
-										flex-wrap: wrap;
-									}
-								 #flex-wrapping-order-slide figure article {
-										order: 2;
-										width: 100%;
-										border: 1px solid black;
-									}
-								 #flex-wrapping-order-slide figure a {
-										order: 1;
-										margin-right: .5em;
-									}
-								</style>
-								<article>One Text Block</article>
-								<a>One Link</a>
-								<article>Two Text Block</article>
-								<a>Two Link</a>
-								<article>Three Text Block</article>
-								<a>Three Link</a>
-						</figure>
-						<pre class="smallest"><code class="html" data-trim></code></pre>
-				</section>
+
 		</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.4.1/lib/js/head.min.js"></script>
