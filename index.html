@@ -351,37 +351,65 @@
 						</p>
 				</section>
 
-				<section id="look-ma-no-hacks">
+				<section>
 						<style>
-						 #look-ma-no-hacks {
+						 #pros-and-cons {
 								display: flex !important;
-								justify-content: center;
+								flex-direction: column;
+								justify-content: space-between;
 								align-items: center;
-								transform: translate(0, 100px);
 							}
-						 #look-ma-no-hacks .crossbar {
-								width: 50vh;
-								height: 5vh;
-								background-color: rgba(255, 0, 0, .7);
-								display: block;
-								margin: auto;
-								position: absolute;
-								border-radius: 20%;
-								display: none;
-							}
-						#look-ma-no-hacks .crossbar {
-								display: block;
-						}
-						#look-ma-no-hacks .crossbar.right {
-								transform: rotate(45deg);
-							}
-						 #look-ma-no-hacks .crossbar.left {
-								transform: rotate(-45deg);
+						 #pros-and-cons ul {
+								align-self: flex-start;
 							}
 						</style>
-						<h1>No Hacks</h1>
-						<div class="crossbar right"> </div>
-						<div class="crossbar left"> </div>
+						<section id="pros-and-cons" data-markdown>
+								## Pros
+
+								* Zero javascript, super low overhead
+								* Declarative, no bugs
+								* Zero Hacks
+
+								## Cons
+
+								* Can't pre-empt navigation
+								* Everything must be on the page, no hooks
+								* If using a js library that hijacks urls you need [a slightly different technique](http://jsbin.com/yuhidon/1/edit?html,css,output)
+								* IE11(ish) support for flexbox
+						</section>
+						
+						<section id="look-ma-no-hacks">
+								<style>
+								#look-ma-no-hacks {
+										display: flex !important;
+										justify-content: center;
+										align-items: center;
+										transform: translate(0, 100px);
+								}
+								#look-ma-no-hacks .crossbar {
+										width: 50vh;
+										height: 5vh;
+										background-color: rgba(255, 0, 0, .7);
+										display: block;
+										margin: auto;
+										position: absolute;
+										border-radius: 20%;
+										display: none;
+								}
+								#look-ma-no-hacks .crossbar {
+										display: block;
+								}
+								#look-ma-no-hacks .crossbar.right {
+										transform: rotate(45deg);
+								}
+								#look-ma-no-hacks .crossbar.left {
+										transform: rotate(-45deg);
+								}
+								</style>
+								<h1>No Hacks</h1>
+								<div class="crossbar right"> </div>
+								<div class="crossbar left"> </div>
+						</section>
 				</section>
 
 				<section data-markdown id="questions">
